@@ -36,6 +36,7 @@ export default function Messages() {
   // BOT Messages
   useEffect(() => {
     socket.on("bot-message", (message) => {
+      setBotTyping(false);
       scrollBack();
       setMessages([...messages, { message, user: BOT, id: Math.random() }]);
       setLatestMessage(BOT, message);
